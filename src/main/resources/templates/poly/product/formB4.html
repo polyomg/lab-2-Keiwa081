@@ -1,0 +1,33 @@
+<form action="/product/saveB4" method="post">
+    <input name="name">
+    <input name="price">
+    <button>Save</button>
+</form>
+
+<ul>
+    <li th:text="${product.name}">?name</li>
+    <li th:text="${product.price}">?price</li>
+</ul>
+
+<h3>Danh sách sản phẩm (Page [[${currentPage}]])</h3>
+<ul>
+    <li th:each="item : ${items}">
+        <span th:text="${item.name}">name</span> :
+        <span th:text="${item.price}">price</span>
+    </li>
+</ul>
+
+<!-- Pagination -->
+<div>
+    <span>Trang: </span>
+    <a th:each="i : ${#numbers.sequence(1, totalPages)}"
+       th:href="@{/product/formB4(page=${i})}"
+       th:text="${i}"
+       th:classappend="${i == currentPage} ? 'active' : ''">
+    </a>
+</div>
+
+<style>
+    a { margin: 0 5px; text-decoration: none; }
+    .active { font-weight: bold; color: red; }
+</style>
