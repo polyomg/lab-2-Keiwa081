@@ -10,27 +10,23 @@ import org.springframework.ui.Model;
 @RequestMapping("/poly")
 public class OkController {
 
-    // http://localhost:8080/poly/ok
     @GetMapping("/ok")
     public String ok() {
-        return "poly/ok"; // ok.html trong templates/poly/
+        return "poly/ok"; 
     }
 
-    // OK 1 -> POST /poly/ok
     @PostMapping("/ok")
     public String m1(Model model) {
         model.addAttribute("message", "m1");
         return "poly/ok";
     }
 
-    // OK 2 -> GET /poly/ok/m2
-    @GetMapping(value = "/ok", params = "!") // trick nhỏ để không đụng với ok() phía trên
+    @GetMapping(value = "/ok", params = "!") 
     public String m2(Model model) {
         model.addAttribute("message", "m2");
         return "poly/ok";
     }
 
-    // OK 3 -> GET /poly/ok/m3
     @PostMapping("/ok/9")
     public String m3(Model model) {
         model.addAttribute("message", "m3");

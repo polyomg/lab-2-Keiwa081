@@ -18,7 +18,6 @@ public class ParamController {
             @RequestParam("y") String y,
             Model model) {
 
-        // Gửi dữ liệu sang view
         model.addAttribute("x", x);
         model.addAttribute("y", y);
 

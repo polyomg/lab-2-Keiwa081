@@ -24,13 +24,13 @@ public class ResultController {
     @RequestMapping("/b")
     public String m2(Model model) {
         model.addAttribute("message", "I come from b");
-        return "forward:/poly/a";  // ?1 → forward để giữ lại Model
+        return "forward:/poly/a"; 
     }
 
     @RequestMapping("/c")
     public String m3(RedirectAttributes params) {
         params.addAttribute("message", "I come from c");
-        return "redirect:/poly/a";  // ?2 → redirect để gửi qua RedirectAttributes
+        return "redirect:/poly/a";  
     }
 
     @RequestMapping("/d")
@@ -41,6 +41,6 @@ public class ResultController {
     @RequestMapping("/testD")
     public String m5(Model model) {
         model.addAttribute("message", m4());
-        return "poly/a";   // ?3 → gọi lại m4() và đưa vào Model rồi hiển thị trên view a.html
+        return "poly/a";  
     }
 }

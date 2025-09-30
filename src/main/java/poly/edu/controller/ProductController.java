@@ -12,7 +12,6 @@ public class ProductController {
 
     @GetMapping("/form")
     public String form(Model model) {
-        // Gửi product rỗng lần đầu để Thymeleaf không bị null
         model.addAttribute("product", new Product());
         return "poly/product/form"; 
     }
